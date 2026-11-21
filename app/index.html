@@ -3,23 +3,95 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>Vice City Trophy Guide — GTA VI (PS5)</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="hero">
+  <div class="hero-text">
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; Unofficial fan guide</p>
+    <h1>Vice City Trophy Guide</h1>
+    <p class="sub">All 55 official trophies — 1 Platinum, 2 Gold, 6 Silver, 46 Bronze — with a guide for each, a tracker, and a road to the Platinum.</p>
+  </div>
+  <div class="progress-card" id="progress-card">
+    <p class="big"><span id="earned-count">0</span> / 55</p>
+    <div class="bar"><div class="fill" id="progress-fill" style="width:0%"></div></div>
+    <p class="muted" id="progress-note">0% to the Platinum</p>
+    <p class="grades" id="grade-counts"></p>
+  </div>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
+
+<details class="roadmap" id="roadmap" open>
+  <summary>Road to the Platinum</summary>
+  <p class="muted">Early estimates put the Platinum at around 200 hours and 4/10 difficulty (PowerPyx). No trophy needs online play. One trophy may be missable — see Phase 1.</p>
+  <div class="phases">
+    <article>
+      <h3>Phase 1 — Play the story</h3>
+      <p>Play the campaign through Chapters 1–4 and the final mission. That alone earns the 12 story trophies, including the gold for the final mission.</p>
+      <p><strong>Do this first:</strong> keep a manual save before leaving Chapter 1. A Chapter 1 meditation with Lucia may count toward <em>Positive Mental Attitude</em>, and it is not settled whether it is required. Do not use cheats — they disable saving and trophy progress.</p>
+    </article>
+    <article>
+      <h3>Phase 2 — Side strands &amp; activities</h3>
+      <p>Finish the 8 stranger mission strands and the finales for Andy, Kenton, Billy, Randy and Tyrone. Then work the activities: 42 Shooting Range golds, drone races at every Top Fun location, 20 race wins, fishing, arcade, bowling and meditation spots.</p>
+    </article>
+    <article>
+      <h3>Phase 3 — Clean-up &amp; collections</h3>
+      <p>250 stunts, 100 vehicles discovered, 100 WAiNK scans, 3 card sets, 50 challenges, 5 bank vaults and the gang operations. Finish with the in-game 100% checklist for <em>A Long Road</em> — the gold for 100% completion.</p>
+    </article>
+  </div>
+  <p class="missable-note">⚠ Possibly missable: <strong>Positive Mental Attitude</strong> — meditate at every spot; a Chapter 1 meditation may be required. Every other trophy can be earned in post-story free roam as far as current guides can tell.</p>
+</details>
+
+<section class="controls" id="controls">
+  <label class="search">Search <input id="q" type="search" placeholder="Trophy name, description or guide…" autocomplete="off"></label>
+  <label>Grade
+    <select id="grade">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label>Kind
+    <select id="kind">
+      <option value="all">All kinds</option>
+      <option value="story">Story</option>
+      <option value="mission">Side missions</option>
+      <option value="activity">Activities</option>
+      <option value="collection">Collections</option>
+      <option value="combat">Combat</option>
+      <option value="robbery">Robberies</option>
+      <option value="exploration">Exploration</option>
+      <option value="money">Money</option>
+      <option value="completion">Completion</option>
+      <option value="platinum">Platinum</option>
+      <option value="misc">Everything else</option>
+    </select>
+  </label>
+  <label>Status
+    <select id="status">
+      <option value="all">All</option>
+      <option value="earned">Earned</option>
+      <option value="remaining">Still to earn</option>
+    </select>
+  </label>
+  <label class="check"><input id="spoiler" type="checkbox"> Hide story spoilers</label>
+  <label class="check"><input id="missable-only" type="checkbox"> Missable only</label>
+  <span class="spacer"></span>
   <button id="export" type="button">Export progress</button>
   <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+  <button id="reset" type="button">Reset</button>
+</section>
+
+<p class="showing" id="showing"></p>
+<main id="list" aria-live="polite"></main>
+
+<footer>
+  <h2>Sources &amp; notes</h2>
+  <p>Trophy names, descriptions and grades are shown as published for the PlayStation 5 list. Guides are written in our own words for this guide; each guide names its sources. Full source list: GTADB — <em>GTA 6 Trophies &amp; Platinum Guide</em> (gtadb.net, crosschecked PS5 list, updated 2026-11-18); PowerPyx — <em>GTA 6 Trophy Roadmap</em>; Sixshore — <em>GTA 6 Trophy and Achievement List</em>; eGamers — <em>GTA 6 Trophy List: All 55 Trophies</em>. The list went public when the game unlocked on 2026-11-18; Rockstar has not published a list of its own, so names and descriptions are the ones the trackers above agree on.</p>
+  <p>Unofficial fan guide. Not affiliated with Rockstar Games, Sony or PlayStation. No Rockstar logo, artwork or game screenshots are used here; the look is our own. Progress is saved only in this browser (localStorage) — export it to keep a copy.</p>
+</footer>
 <script type="module" src="app.js"></script>
 </body>
 </html>
